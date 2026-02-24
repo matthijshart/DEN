@@ -913,3 +913,193 @@ button{ font: inherit; }
   .rendiGrid2{ grid-template-columns: 1fr; }
   .rendiSummary{ display:none; }
 }
+/* ===========================
+   RENDI FILM — LIGHT THEME OVERRIDES
+   Plak dit onderaan styles.css (na de film CSS)
+   =========================== */
+
+/* 1) film achtergrond wit */
+.imacScreen .rendiFilm{
+  background: #ffffff;
+}
+
+/* 2) algemene UI kleuren licht */
+.rendiUI{
+  color: #121417;
+  background:
+    radial-gradient(560px 360px at 18% 18%, rgba(220,121,92,.18), transparent 62%),
+    radial-gradient(520px 360px at 86% 36%, rgba(220,121,92,.12), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.00));
+}
+
+/* topbar */
+.rendiTopbar{
+  border-bottom: 1px solid rgba(18,20,23,.10);
+  background: rgba(255,255,255,.82);
+}
+
+.rendiBrandName{ color:#121417; }
+
+.rendiChip{
+  border: 1px solid rgba(18,20,23,.10);
+  background: rgba(18,20,23,.03);
+  color: rgba(18,20,23,.72);
+}
+
+.rendiLive{
+  color: rgba(18,20,23,.68);
+}
+
+/* nav */
+.rendiNav{
+  border-right: 1px solid rgba(18,20,23,.10);
+  background: rgba(18,20,23,.02);
+}
+
+.rendiNavItem{
+  color: rgba(18,20,23,.70);
+}
+
+.rendiNavItem.is-active{
+  color:#121417;
+  background: rgba(220,121,92,.12);
+  border-color: rgba(220,121,92,.40);
+}
+
+/* headings */
+.rendiTitle{ color:#121417; }
+.rendiSub{ color: rgba(18,20,23,.62); }
+
+.rendiPill{
+  border: 1px solid rgba(220,121,92,.35);
+  background: rgba(220,121,92,.10);
+  color: rgba(18,20,23,.78);
+}
+
+/* cards */
+.rendiCard{
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(18,20,23,.10);
+  box-shadow: 0 18px 50px rgba(0,0,0,.10);
+}
+
+.rendiCardTitle{
+  color: rgba(18,20,23,.86);
+}
+
+.rendiDrop{
+  border: 1px dashed rgba(18,20,23,.18);
+  background: rgba(18,20,23,.02);
+}
+
+.rendiDropTitle{ color:#121417; }
+.rendiDropHint{ color: rgba(18,20,23,.58); }
+
+.rendiMiniKey{ color: rgba(18,20,23,.58); }
+.rendiMiniVal{ color: rgba(18,20,23,.86); }
+
+.rendiHint{ color: rgba(18,20,23,.58); }
+
+.rendiFiles{ color: rgba(18,20,23,.78); }
+.rendiFiles em{ color: rgba(18,20,23,.54); }
+.rendiFileDot{ background: rgba(18,20,23,.28); }
+
+/* progress */
+.rendiProgress{
+  border: 1px solid rgba(18,20,23,.12);
+  background: rgba(18,20,23,.06);
+}
+
+/* checks */
+.rendiCheckItem{
+  border: 1px solid rgba(18,20,23,.10);
+  background: rgba(18,20,23,.02);
+  color: rgba(18,20,23,.78);
+}
+
+.rendiCheckItem.warn{
+  border-color: rgba(220,121,92,.45);
+  background: rgba(220,121,92,.10);
+}
+
+/* table */
+.rendiTableWrap{
+  border: 1px solid rgba(18,20,23,.10);
+  background: rgba(18,20,23,.02);
+}
+
+.rendiTable th,
+.rendiTable td{
+  border-bottom: 1px solid rgba(18,20,23,.08);
+  color: rgba(18,20,23,.82);
+}
+
+.rendiTable thead th{
+  color: rgba(18,20,23,.70);
+  background: rgba(18,20,23,.02);
+}
+
+.rendiTable tbody tr.hi td{
+  background: rgba(220,121,92,.08);
+}
+
+/* audit */
+.rendiAuditLine{
+  border: 1px solid rgba(18,20,23,.10);
+  background: rgba(18,20,23,.02);
+  color: rgba(18,20,23,.78);
+}
+
+/* rule card */
+.rendiRule{
+  border: 1px solid rgba(220,121,92,.38);
+  background: rgba(220,121,92,.10);
+}
+
+.rendiRuleBody{
+  color: rgba(18,20,23,.70);
+}
+
+.rendiRuleCode{
+  border: 1px solid rgba(18,20,23,.10);
+  background: rgba(18,20,23,.04);
+  color: rgba(18,20,23,.86);
+}
+
+/* export */
+.rendiExportOpt{
+  border: 1px solid rgba(18,20,23,.10);
+  background: rgba(18,20,23,.02);
+  color: rgba(18,20,23,.70);
+}
+
+.rendiExportOpt.is-on{
+  border-color: rgba(220,121,92,.45);
+  background: rgba(220,121,92,.12);
+  color: rgba(18,20,23,.85);
+}
+
+.rendiExportBtn{
+  color:#121417;
+  border: 1px solid rgba(220,121,92,.55);
+  background: linear-gradient(180deg, rgba(220,121,92,.20), rgba(220,121,92,.12));
+}
+
+/* cursor */
+.rendiCursor{
+  border: 1px solid rgba(18,20,23,.30);
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12), 0 0 0 8px rgba(220,121,92,.12);
+  opacity: .90;
+}
+
+/* glass overlay (minder heftig op wit) */
+.rendiGlass{
+  opacity: .10;
+  mix-blend-mode: multiply;
+}
+
+/* 3) summary overlay volledig uit (zodat niets de film bedekt) */
+.rendiSummary{
+  display: none !important;
+}
