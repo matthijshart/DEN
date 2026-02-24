@@ -115,6 +115,29 @@ button{ font: inherit; }
   margin-top: -6px;
 }
 
+
+
+/* Why Rendi section */
+.necessity{
+  padding: 18px 0 12px;
+}
+
+.necessityCard{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius2);
+  box-shadow: var(--shadow2);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.necessityCard .h2{
+  margin-top: 0;
+}
+
+.necessityCard .p + .p{
+  margin-top: 14px;
+}
+
 /* Product screen */
 .product{
   padding: calc(44px + var(--safe-top)) 0 calc(48px + var(--safe-bottom));
