@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rendi — Dashboard (preview)</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --side:#fbfaf6;
+      --ink:#14110f;
+      --muted: rgba(20,17,15,.60);
+      --line: rgba(20,17,15,.12);
+      --accent:#DC795C;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    .app{
+      height:100%;
+      display:grid;
+      grid-template-columns: 220px 1fr;
+    }
+    .side{
+      background: var(--side);
+      border-right: 1px solid var(--line);
+      padding: 14px 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+    }
+    .mark{
+      width: 30px; height: 30px;
+      border-radius: 12px;
+      background: var(--ink);
+      display:grid; place-items:center;
+      color:#fff;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      font-size: 13px;
+    }
+    .brand strong{ font-size: 13px; letter-spacing:-.01em; }
+    .brand span{ display:block; font-size: 11px; color: var(--muted); margin-top:2px; }
+    .nav{ margin-top: 10px; display:grid; gap: 4px; }
+    .nav a{
+      display:flex; align-items:center; gap: 10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      font-size: 12px;
+      color: rgba(20,17,15,.78);
+      font-weight: 650;
+      text-decoration:none;
+    }
+    .nav a.active{
+      background: rgba(20,17,15,.04);
+      color: rgba(20,17,15,.92);
+    }
+    .nav .ico{
+      width: 26px; height: 26px;
+      border-radius: 12px;
+      border: 1px solid rgba(20,17,15,.12);
+      background: rgba(20,17,15,.02);
+      display:grid; place-items:center;
+      font-size: 13px;
+    }
+
+    .main{
+      padding: 16px 16px;
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.92);
+    }
+    .top strong{ font-size: 13px; }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(20,17,15,.12);
+      background: rgba(255,255,255,.92);
+      font-size: 11px;
+      color: rgba(20,17,15,.72);
+      font-weight: 700;
+      white-space:nowrap;
+    }
+    .chip .dot{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+      margin-top: 12px;
+      align-items:start;
+    }
+    .card{
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.96);
+      padding: 12px;
+    }
+    .h{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .h h2{
+      margin:0;
+      font-size: 12px;
+      letter-spacing:-.01em;
+    }
+    .muted{ color: var(--muted); font-size: 11px; line-height: 1.5; margin-top: 6px; }
+
+    .barTrack{
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(20,17,15,.08);
+      overflow:hidden;
+      margin-top: 10px;
+    }
+    .bar{
+      height:100%;
+      width: 72%;
+      border-radius: 999px;
+      background: var(--ink);
+    }
+
+    .rows{ margin-top: 10px; border-top: 1px solid rgba(20,17,15,.08); }
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(20,17,15,.06);
+    }
+    .left{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .title{
+      min-width:0;
+    }
+    .title strong{ display:block; font-size: 12px; }
+    .title span{ display:block; font-size: 11px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 260px; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(20,17,15,.12);
+      background: rgba(255,255,255,.96);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(20,17,15,.72);
+      white-space:nowrap;
+    }
+    .pill .s{ width: 8px; height: 8px; border-radius:999px; background: rgba(20,17,15,.25); }
+    .pill.ok .s{ background: rgba(16,185,129,1); }
+    .pill.warn .s{ background: rgba(245,158,11,1); }
+    .pill.todo .s{ background: rgba(20,17,15,.22); }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--ink);
+      color:#fff;
+      font-weight: 800;
+      font-size: 11px;
+      cursor:pointer;
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.96);
+      border-color: rgba(20,17,15,.14);
+      color: rgba(20,17,15,.86);
+    }
+
+    @media (max-width: 860px){
+      .app{ grid-template-columns: 200px 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .title span{ max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app" aria-label="Dashboard preview">
+    <aside class="side" aria-label="Navigatie">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">R</div>
+        <div>
+          <strong>Rendi</strong>
+          <span>Beveiligd dossier</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Menu">
+        <a class="active" href="#"><span class="ico" aria-hidden="true">▦</span> Overzicht</a>
+        <a href="#"><span class="ico" aria-hidden="true">⬆︎</span> Uploads</a>
+        <a href="#"><span class="ico" aria-hidden="true">⟲</span> Berekening</a>
+        <a href="#"><span class="ico" aria-hidden="true">⎘</span> Export</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="top" aria-label="Balk">
+        <div>
+          <strong>Jaar 2028</strong>
+          <div class="muted" style="margin-top:2px;">Checklist + bronnen</div>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <span class="chip"><span class="dot" aria-hidden="true"></span> Versleuteld</span>
+          <span class="chip"><span class="dot" aria-hidden="true"></span> EU</span>
+        </div>
+      </div>
+
+      <div class="grid" aria-label="Dashboard grid">
+        <section class="card" aria-label="Voortgang">
+          <div class="h">
+            <h2>Voortgang</h2>
+            <span class="pill warn"><span class="s" aria-hidden="true"></span> Controle</span>
+          </div>
+          <div class="barTrack" aria-hidden="true"><div class="bar"></div></div>
+
+          <div class="rows" role="list" aria-label="Categorieën">
+            <div class="row" role="listitem">
+              <div class="left">
+                <span class="ico" aria-hidden="true">🏦</span>
+                <div class="title"><strong>Bank</strong><span>Rente en kosten herkend</span></div>
+              </div>
+              <span class="pill ok"><span class="s" aria-hidden="true"></span> In orde</span>
+            </div>
+            <div class="row" role="listitem">
+              <div class="left">
+                <span class="ico" aria-hidden="true">📈</span>
+                <div class="title"><strong>Beleggen</strong><span>Dividend nog checken</span></div>
+              </div>
+              <span class="pill warn"><span class="s" aria-hidden="true"></span> Controle</span>
+            </div>
+            <div class="row" role="listitem" style="border-bottom:0;">
+              <div class="left">
+                <span class="ico" aria-hidden="true">🏠</span>
+                <div class="title"><strong>Vastgoed</strong><span>WOZ ophalen</span></div>
+              </div>
+              <span class="pill todo"><span class="s" aria-hidden="true"></span> Nog nodig</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" aria-label="Acties">
+          <div class="h">
+            <h2>Acties</h2>
+          </div>
+          <div class="muted">Upload → controle → export.</div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+            <button class="btn" type="button">Upload</button>
+            <button class="btn btnGhost" type="button">Export</button>
+          </div>
+
+          <div class="muted" style="margin-top:10px;">
+            Audit‑trail per veld.
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
