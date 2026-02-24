@@ -4,6 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rendi — Dashboard (preview)</title>
+  <meta name="theme-color" content="#14110f" />
+  <meta name="msapplication-TileColor" content="#14110f" />
+  <meta property="og:image" content="assets/img/logo-1024.png" />
+  <meta property="og:image:alt" content="Rendi logo" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="assets/img/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/img/favicon-32x32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="assets/img/favicon-16x16.png" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180" />
+  <link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#14110f" />
+  <link rel="manifest" href="assets/site.webmanifest" />
   <style>
     :root{
       --bg:#ffffff;
@@ -39,12 +50,16 @@
     .mark{
       width: 30px; height: 30px;
       border-radius: 12px;
-      background: var(--ink);
+      background: rgba(20,17,15,.06);
+      border: 1px solid rgba(20,17,15,.12);
       display:grid; place-items:center;
-      color:#fff;
-      font-weight: 900;
-      letter-spacing: -.03em;
-      font-size: 13px;
+      overflow: hidden;
+    }
+    .mark img{
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      opacity: .92;
     }
     .brand strong{ font-size: 13px; letter-spacing:-.01em; }
     .brand span{ display:block; font-size: 11px; color: var(--muted); margin-top:2px; }
@@ -213,7 +228,7 @@
   <div class="app" aria-label="Dashboard preview">
     <aside class="side" aria-label="Navigatie">
       <div class="brand">
-        <div class="mark" aria-hidden="true">R</div>
+        <div class="mark" aria-hidden="true"><img src="assets/img/logo.png" alt="" /></div>
         <div>
           <strong>Rendi</strong>
           <span>Beveiligd dossier</span>
