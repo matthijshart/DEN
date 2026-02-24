@@ -67,7 +67,270 @@
           <div class="imac">
             <div class="imacFrame">
               <div class="imacScreen">
-                <iframe src="dashboard.html" title="Dashboard preview" loading="lazy"></iframe>
+                <div class="rendiFilm" data-rendi-film aria-label="Rendi productdemo">
+                  <div class="rendiUI" data-step="0" style="--rendiAccent:#DC795C;">
+                    <!-- Topbar -->
+                    <div class="rendiTopbar">
+                      <div class="rendiBrand">
+                        <span class="rendiMark" aria-hidden="true"></span>
+                        <span class="rendiBrandName">Rendi</span>
+                      </div>
+                      <div class="rendiTopRight">
+                        <span class="rendiChip">Box 3 • 2028</span>
+                        <span class="rendiLive"><span class="rendiLiveDot" aria-hidden="true"></span> Live controle</span>
+                      </div>
+                    </div>
+
+                    <!-- Nav -->
+                    <div class="rendiNav" aria-hidden="true">
+                      <div class="rendiNavItem is-active" data-nav="0">Import</div>
+                      <div class="rendiNavItem" data-nav="1">Controle</div>
+                      <div class="rendiNavItem" data-nav="2">Toerekening</div>
+                      <div class="rendiNavItem" data-nav="3">Audit trail</div>
+                      <div class="rendiNavItem" data-nav="4">Export</div>
+                    </div>
+
+                    <!-- Main -->
+                    <div class="rendiMain">
+                      <!-- Panel 0: Import -->
+                      <section class="rendiPanel" data-panel="0">
+                        <div class="rendiPanelHeader">
+                          <div>
+                            <div class="rendiTitle">Import</div>
+                            <div class="rendiSub">Bronnen koppelen → velden mappen → parsing</div>
+                          </div>
+                          <div class="rendiPill">Koppelingen</div>
+                        </div>
+
+                        <div class="rendiGrid2">
+                          <div class="rendiCard">
+                            <div class="rendiCardTitle">Upload</div>
+                            <div class="rendiDrop">
+                              <div class="rendiDropIcon" aria-hidden="true"></div>
+                              <div>
+                                <div class="rendiDropTitle">Sleep bestanden hier</div>
+                                <div class="rendiDropHint">bank.csv • broker.xlsx • woz.json</div>
+                              </div>
+                            </div>
+
+                            <div class="rendiProgress">
+                              <div class="rendiProgressFill" data-progress="import" style="width:0%"></div>
+                            </div>
+
+                            <div class="rendiMiniRow">
+                              <span class="rendiMiniKey">Parser</span>
+                              <span class="rendiMiniVal" data-status="import">Wachten…</span>
+                            </div>
+                          </div>
+
+                          <div class="rendiCard">
+                            <div class="rendiCardTitle">Gekoppelde bronnen</div>
+                            <ul class="rendiFiles">
+                              <li><span class="rendiFileDot"></span> bank.csv <em>rente • bankkosten</em></li>
+                              <li><span class="rendiFileDot"></span> broker.xlsx <em>beleggingen • aanwas</em></li>
+                              <li><span class="rendiFileDot"></span> woz.json <em>vastgoed • WOZ</em></li>
+                            </ul>
+
+                            <div class="rendiHint">
+                              Velden worden automatisch herkend en klaargezet voor controle.
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Panel 1: Controle -->
+                      <section class="rendiPanel" data-panel="1">
+                        <div class="rendiPanelHeader">
+                          <div>
+                            <div class="rendiTitle">Controle</div>
+                            <div class="rendiSub">Validatie per veld + consistentiechecks</div>
+                          </div>
+                          <div class="rendiPill">Audit‑trail</div>
+                        </div>
+
+                        <div class="rendiCard">
+                          <div class="rendiCardTitle">Checks</div>
+                          <div class="rendiChecks">
+                            <div class="rendiCheckItem ok">Startdatum waardering ✓</div>
+                            <div class="rendiCheckItem ok">Kosten consistent verwerkt ✓</div>
+                            <div class="rendiCheckItem ok">Aanwas vs. realisatie ✓</div>
+                            <div class="rendiCheckItem warn">Vastgoed: huur vs. bijtelling → aandachtspunt</div>
+                            <div class="rendiCheckItem ok">Verliesdrempel & verrekening ✓</div>
+                          </div>
+
+                          <div class="rendiHint">
+                            Elke check is herleidbaar naar bron + regelkaart.
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Panel 2: Toerekening -->
+                      <section class="rendiPanel" data-panel="2">
+                        <div class="rendiPanelHeader">
+                          <div>
+                            <div class="rendiTitle">Toerekening</div>
+                            <div class="rendiSub">Per vermogensbestanddeel: inkomsten/aanwas, kosten, resultaat</div>
+                          </div>
+                          <div class="rendiPill">Aangiftebasis</div>
+                        </div>
+
+                        <div class="rendiCard">
+                          <div class="rendiCardTitle">Overzicht</div>
+
+                          <div class="rendiTableWrap">
+                            <table class="rendiTable" aria-label="Toerekening overzicht">
+                              <thead>
+                                <tr>
+                                  <th>Bestanddeel</th>
+                                  <th class="num">Inkomsten/aanwas</th>
+                                  <th class="num">Kosten</th>
+                                  <th class="num">Resultaat</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><span class="rendiDot"></span> Banktegoeden</td>
+                                  <td class="num" data-count data-eur data-val="500">€ 500</td>
+                                  <td class="num" data-count data-eur data-val="-20">€ −20</td>
+                                  <td class="num" data-count data-eur data-val="480">€ 480</td>
+                                </tr>
+                                <tr class="hi">
+                                  <td><span class="rendiDot"></span> Vastgoed</td>
+                                  <td class="num" data-count data-eur data-val="50000">€ 50.000</td>
+                                  <td class="num" data-count data-eur data-val="0">€ 0</td>
+                                  <td class="num" data-count data-eur data-val="50000">€ 50.000</td>
+                                </tr>
+                                <tr>
+                                  <td><span class="rendiDot"></span> Schuldenrente</td>
+                                  <td class="num" data-count data-eur data-val="0">€ 0</td>
+                                  <td class="num" data-count data-eur data-val="15000">€ 15.000</td>
+                                  <td class="num" data-count data-eur data-val="-15000">€ −15.000</td>
+                                </tr>
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                  <td>Totaal</td>
+                                  <td class="num">—</td>
+                                  <td class="num">—</td>
+                                  <td class="num" data-count data-eur data-val="35480">€ 35.480</td>
+                                </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+
+                          <div class="rendiHint">
+                            Rendi houdt toerekening + definities per veld consistent.
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Panel 3: Audit trail -->
+                      <section class="rendiPanel" data-panel="3">
+                        <div class="rendiPanelHeader">
+                          <div>
+                            <div class="rendiTitle">Audit trail</div>
+                            <div class="rendiSub">Herleidbaar: bron → veld → regel → uitkomst</div>
+                          </div>
+                          <div class="rendiPill">Controleerbaar</div>
+                        </div>
+
+                        <div class="rendiGrid2">
+                          <div class="rendiCard">
+                            <div class="rendiCardTitle">Log</div>
+                            <div class="rendiAudit">
+                              <div class="rendiAuditLine">WOZ.json → Vastgoed → waarde (start) → OK</div>
+                              <div class="rendiAuditLine">Verhuur → huurinkomsten → € 50.000</div>
+                              <div class="rendiAuditLine">Regelkaart → vastgoed: huur vs. bijtelling</div>
+                              <div class="rendiAuditLine">Bank → rente → € 500</div>
+                              <div class="rendiAuditLine">Bank → kosten → € 20</div>
+                              <div class="rendiAuditLine">Schuld → rente → € 15.000</div>
+                            </div>
+                            <div class="rendiHint">Klik in de echte tool op elk veld voor bron + berekening.</div>
+                          </div>
+
+                          <div class="rendiCard">
+                            <div class="rendiCardTitle">Regelkaart</div>
+                            <div class="rendiRule">
+                              <div class="rendiRuleTitle">Vastgoed (concept)</div>
+                              <div class="rendiRuleBody">
+                                Heffing volgt de hoogste grondslag (huur of bijtelling), minus aftrekbare kosten.
+                                Verbeteringen worden apart behandeld richting verkoopwinst.
+                              </div>
+                              <div class="rendiRuleCode">
+                                grondslag = max(huur, bijtelling) − onderhoud
+                              </div>
+                            </div>
+                            <div class="rendiHint">Zo blijft elk getal uitlegbaar — ook bij controle.</div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Panel 4: Export -->
+                      <section class="rendiPanel" data-panel="4">
+                        <div class="rendiPanelHeader">
+                          <div>
+                            <div class="rendiTitle">Export</div>
+                            <div class="rendiSub">Genereer aangiftebasis + rapportage</div>
+                          </div>
+                          <div class="rendiPill">Klaar</div>
+                        </div>
+
+                        <div class="rendiCard">
+                          <div class="rendiCardTitle">Export aangiftebasis</div>
+
+                          <div class="rendiExportRow">
+                            <div class="rendiExportOpt is-on">XML</div>
+                            <div class="rendiExportOpt">CSV</div>
+                            <div class="rendiExportOpt">PDF</div>
+                            <div class="rendiExportBtn">
+                              Genereer
+                              <span class="rendiExportSpark" aria-hidden="true"></span>
+                            </div>
+                          </div>
+
+                          <div class="rendiProgress">
+                            <div class="rendiProgressFill" data-progress="export" style="width:0%"></div>
+                          </div>
+
+                          <div class="rendiMiniRow">
+                            <span class="rendiMiniKey">Status</span>
+                            <span class="rendiMiniVal" data-status="export">Wachten…</span>
+                          </div>
+
+                          <div class="rendiHint">
+                            Output is gestructureerd + voorzien van audit‑trail per veld.
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <!-- Summary (blijft staan) -->
+                    <aside class="rendiSummary" aria-hidden="true">
+                      <div class="rendiSummaryTitle">Aangiftebasis (concept)</div>
+
+                      <div class="rendiMetric">
+                        <div class="rendiMetricLabel">Resultaat box 3</div>
+                        <div class="rendiMetricValue" data-metric="result">€ 0</div>
+                      </div>
+
+                      <div class="rendiMetric">
+                        <div class="rendiMetricLabel">Belastbaar inkomen</div>
+                        <div class="rendiMetricValue" data-metric="taxable">€ 0</div>
+                      </div>
+
+                      <div class="rendiMetric">
+                        <div class="rendiMetricLabel">Belasting (indicatief)</div>
+                        <div class="rendiMetricValue" data-metric="tax">€ 0</div>
+                      </div>
+
+                      <div class="rendiSummaryNote">Concept‑demo • geen individueel advies</div>
+                    </aside>
+
+                    <!-- Cursor + screen glass -->
+                    <div class="rendiCursor" aria-hidden="true"></div>
+                    <div class="rendiGlass" aria-hidden="true"></div>
+                  </div>
+                </div>
               </div>
               <div class="imacChin" aria-hidden="true"></div>
             </div>

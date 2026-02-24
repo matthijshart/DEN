@@ -372,3 +372,538 @@ button{ font: inherit; }
   font-size: 12px;
   line-height: 1.6;
 }
+
+/* ===========================
+   RENDI iMAC FILM (embedded UI)
+   Accent: #DC795C
+   =========================== */
+
+.imacScreen { position: relative; }
+.imacScreen .rendiFilm{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* Film container */
+.rendiFilm{
+  background:#070A0F;
+  overflow:hidden;
+}
+
+/* Product UI */
+.rendiUI{
+  --rendiAccent:#DC795C;
+  --ink: rgba(237,239,243,.92);
+  --muted: rgba(237,239,243,.70);
+  --line: rgba(237,239,243,.10);
+  --panel: rgba(11,14,22,.72);
+  --panel2: rgba(255,255,255,.04);
+
+  position:relative;
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns: 148px 1fr;
+  grid-template-rows: 44px 1fr;
+  grid-template-areas:
+    "top top"
+    "nav main";
+
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  color: var(--ink);
+  background:
+    radial-gradient(560px 360px at 18% 18%, rgba(220,121,92,.16), transparent 62%),
+    radial-gradient(520px 360px at 86% 36%, rgba(220,121,92,.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+
+/* Topbar */
+.rendiTopbar{
+  grid-area:top;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 10px 12px;
+  border-bottom:1px solid var(--line);
+  background: rgba(0,0,0,.10);
+}
+
+.rendiBrand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.rendiMark{
+  width:12px; height:12px; border-radius:4px;
+  background: var(--rendiAccent);
+  box-shadow: 0 0 0 6px rgba(220,121,92,.14);
+}
+
+.rendiBrandName{
+  font-weight:800;
+  letter-spacing:.02em;
+  font-size:12.5px;
+}
+
+.rendiTopRight{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.rendiChip{
+  font-size:11px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(237,239,243,.14);
+  background: rgba(255,255,255,.03);
+  color: rgba(237,239,243,.82);
+}
+
+.rendiLive{
+  font-size:11px;
+  color: rgba(237,239,243,.78);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.rendiLiveDot{
+  width:8px; height:8px; border-radius:999px;
+  background: var(--rendiAccent);
+  box-shadow: 0 0 0 6px rgba(220,121,92,.12);
+}
+
+/* Nav */
+.rendiNav{
+  grid-area:nav;
+  padding: 10px;
+  border-right:1px solid var(--line);
+  background: rgba(0,0,0,.06);
+}
+
+.rendiNavItem{
+  font-size:11.5px;
+  padding:9px 10px;
+  border-radius:12px;
+  color: rgba(237,239,243,.78);
+  border:1px solid transparent;
+  background: transparent;
+  margin-bottom:8px;
+  user-select:none;
+}
+
+.rendiNavItem.is-active{
+  color: rgba(237,239,243,.92);
+  background: rgba(220,121,92,.14);
+  border-color: rgba(220,121,92,.35);
+  box-shadow: 0 0 0 1px rgba(220,121,92,.10) inset;
+}
+
+/* Main area + panels */
+.rendiMain{
+  grid-area:main;
+  position:relative;
+  padding: 12px;
+  overflow:hidden;
+}
+
+.rendiPanel{
+  position:absolute;
+  inset:12px;
+  opacity:0;
+  transform: translateY(6px);
+  pointer-events:none;
+  transition: opacity .45s ease, transform .45s ease;
+}
+
+.rendiUI[data-step="0"] .rendiPanel[data-panel="0"],
+.rendiUI[data-step="1"] .rendiPanel[data-panel="1"],
+.rendiUI[data-step="2"] .rendiPanel[data-panel="2"],
+.rendiUI[data-step="3"] .rendiPanel[data-panel="3"],
+.rendiUI[data-step="4"] .rendiPanel[data-panel="4"]{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+
+.rendiPanelHeader{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.rendiTitle{
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:.01em;
+}
+.rendiSub{
+  margin-top:3px;
+  font-size:11.5px;
+  color: var(--muted);
+}
+
+.rendiPill{
+  font-size:11px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(220,121,92,.30);
+  background: rgba(220,121,92,.10);
+  color: rgba(237,239,243,.85);
+}
+
+/* Cards */
+.rendiCard{
+  background: var(--panel);
+  border:1px solid rgba(237,239,243,.12);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
+}
+
+.rendiCardTitle{
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:.02em;
+  margin-bottom:10px;
+}
+
+.rendiGrid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+
+/* Dropzone */
+.rendiDrop{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px dashed rgba(237,239,243,.16);
+  background: rgba(255,255,255,.03);
+}
+
+.rendiDropIcon{
+  width:34px; height:34px; border-radius:12px;
+  border:1px solid rgba(220,121,92,.28);
+  background:
+    radial-gradient(14px 14px at 30% 30%, rgba(220,121,92,.22), transparent 65%),
+    rgba(255,255,255,.02);
+}
+
+.rendiDropTitle{ font-weight:700; font-size:12px; }
+.rendiDropHint{ margin-top:2px; font-size:11px; color: var(--muted); }
+
+/* Progress */
+.rendiProgress{
+  margin-top:12px;
+  height:10px;
+  border-radius:999px;
+  overflow:hidden;
+  border:1px solid rgba(237,239,243,.12);
+  background: rgba(0,0,0,.25);
+}
+.rendiProgressFill{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(220,121,92,.25), rgba(220,121,92,.80));
+  box-shadow: 0 0 0 1px rgba(220,121,92,.10) inset;
+  transition: width 1.9s linear;
+}
+
+/* Mini rows + hint */
+.rendiMiniRow{
+  margin-top:10px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:11.5px;
+}
+.rendiMiniKey{ color: var(--muted); }
+.rendiMiniVal{ color: rgba(237,239,243,.86); font-weight:600; }
+
+.rendiHint{
+  margin-top:10px;
+  font-size:11.5px;
+  color: rgba(237,239,243,.68);
+}
+
+/* Files */
+.rendiFiles{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:11.5px;
+  color: rgba(237,239,243,.84);
+}
+.rendiFiles li{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+}
+.rendiFiles em{
+  font-style:normal;
+  color: rgba(237,239,243,.62);
+  margin-left:6px;
+}
+.rendiFileDot{
+  width:8px; height:8px; border-radius:999px;
+  background: rgba(237,239,243,.35);
+}
+
+/* Checks */
+.rendiChecks{ display:flex; flex-direction:column; gap:8px; }
+.rendiCheckItem{
+  opacity:0;
+  transform: translateY(6px);
+  transition: opacity .45s ease, transform .45s ease;
+  font-size:12px;
+  padding:10px 10px;
+  border-radius: 14px;
+  border:1px solid rgba(237,239,243,.12);
+  background: rgba(255,255,255,.03);
+}
+.rendiCheckItem.ok{ border-color: rgba(237,239,243,.12); }
+.rendiCheckItem.warn{
+  border-color: rgba(220,121,92,.35);
+  background: rgba(220,121,92,.10);
+}
+
+.rendiUI[data-step="1"] .rendiCheckItem{
+  opacity:1; transform:none;
+}
+.rendiUI[data-step="1"] .rendiCheckItem:nth-child(1){ transition-delay: .10s; }
+.rendiUI[data-step="1"] .rendiCheckItem:nth-child(2){ transition-delay: .18s; }
+.rendiUI[data-step="1"] .rendiCheckItem:nth-child(3){ transition-delay: .26s; }
+.rendiUI[data-step="1"] .rendiCheckItem:nth-child(4){ transition-delay: .34s; }
+.rendiUI[data-step="1"] .rendiCheckItem:nth-child(5){ transition-delay: .42s; }
+
+/* Table */
+.rendiTableWrap{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(237,239,243,.12);
+  background: rgba(0,0,0,.18);
+}
+
+.rendiTable{
+  width:100%;
+  border-collapse:collapse;
+  font-size:11.5px;
+}
+
+.rendiTable th, .rendiTable td{
+  padding:10px 10px;
+  border-bottom:1px solid rgba(237,239,243,.08);
+  color: rgba(237,239,243,.84);
+}
+
+.rendiTable thead th{
+  font-weight:800;
+  color: rgba(237,239,243,.72);
+  background: rgba(255,255,255,.02);
+}
+.rendiTable .num{ text-align:right; font-variant-numeric: tabular-nums; }
+.rendiTable tbody tr.hi td{
+  background: rgba(220,121,92,.08);
+}
+.rendiDot{
+  width:8px; height:8px; border-radius:999px;
+  display:inline-block;
+  background: rgba(220,121,92,.65);
+  margin-right:8px;
+  box-shadow: 0 0 0 6px rgba(220,121,92,.10);
+}
+
+/* Audit */
+.rendiAudit{ display:flex; flex-direction:column; gap:8px; }
+.rendiAuditLine{
+  opacity:0;
+  transform: translateY(6px);
+  transition: opacity .45s ease, transform .45s ease;
+  font-size:11.5px;
+  padding:10px 10px;
+  border-radius: 14px;
+  border:1px solid rgba(237,239,243,.12);
+  background: rgba(255,255,255,.03);
+}
+.rendiUI[data-step="3"] .rendiAuditLine{ opacity:1; transform:none; }
+.rendiUI[data-step="3"] .rendiAuditLine:nth-child(1){ transition-delay:.10s; }
+.rendiUI[data-step="3"] .rendiAuditLine:nth-child(2){ transition-delay:.18s; }
+.rendiUI[data-step="3"] .rendiAuditLine:nth-child(3){ transition-delay:.26s; }
+.rendiUI[data-step="3"] .rendiAuditLine:nth-child(4){ transition-delay:.34s; }
+.rendiUI[data-step="3"] .rendiAuditLine:nth-child(5){ transition-delay:.42s; }
+.rendiUI[data-step="3"] .rendiAuditLine:nth-child(6){ transition-delay:.50s; }
+
+.rendiRule{
+  border-radius:14px;
+  border:1px solid rgba(220,121,92,.30);
+  background: rgba(220,121,92,.08);
+  padding: 10px;
+}
+.rendiRuleTitle{
+  font-weight:800;
+  font-size:12px;
+  margin-bottom:6px;
+}
+.rendiRuleBody{
+  font-size:11.5px;
+  color: rgba(237,239,243,.78);
+  line-height:1.45;
+}
+.rendiRuleCode{
+  margin-top:10px;
+  font-size:11.5px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: rgba(237,239,243,.88);
+  padding:10px;
+  border-radius: 12px;
+  border:1px solid rgba(237,239,243,.12);
+  background: rgba(0,0,0,.22);
+}
+
+/* Export */
+.rendiExportRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.rendiExportOpt{
+  font-size:11px;
+  padding:8px 10px;
+  border-radius: 12px;
+  border:1px solid rgba(237,239,243,.12);
+  background: rgba(255,255,255,.03);
+  color: rgba(237,239,243,.78);
+}
+.rendiExportOpt.is-on{
+  border-color: rgba(220,121,92,.35);
+  background: rgba(220,121,92,.10);
+  color: rgba(237,239,243,.90);
+}
+
+.rendiExportBtn{
+  margin-left:auto;
+  font-size:11px;
+  padding:9px 12px;
+  border-radius: 12px;
+  border:1px solid rgba(220,121,92,.45);
+  background: linear-gradient(180deg, rgba(220,121,92,.22), rgba(220,121,92,.10));
+  color: rgba(237,239,243,.92);
+  font-weight:800;
+  position:relative;
+  overflow:hidden;
+}
+.rendiExportSpark{
+  position:absolute;
+  inset:-40% -60%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.16), transparent 55%);
+  transform: rotate(12deg);
+  opacity:.0;
+}
+.rendiUI[data-step="4"] .rendiExportSpark{
+  opacity:.7;
+  animation: rendiSpark 1.2s ease infinite;
+}
+@keyframes rendiSpark{
+  0%{ transform: translateX(-30%) rotate(12deg); opacity:.2; }
+  50%{ transform: translateX(20%) rotate(12deg); opacity:.7; }
+  100%{ transform: translateX(60%) rotate(12deg); opacity:.2; }
+}
+
+/* Summary */
+.rendiSummary{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  width: 210px;
+  background: rgba(11,14,22,.72);
+  border:1px solid rgba(220,121,92,.26);
+  border-radius: 16px;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+.rendiSummaryTitle{
+  font-weight:900;
+  font-size:11.5px;
+  letter-spacing:.02em;
+  margin-bottom:10px;
+}
+.rendiMetric{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(237,239,243,.08);
+}
+.rendiMetric:last-of-type{ border-bottom:none; }
+.rendiMetricLabel{
+  font-size:11px;
+  color: rgba(237,239,243,.68);
+}
+.rendiMetricValue{
+  font-size:11.5px;
+  font-weight:900;
+  font-variant-numeric: tabular-nums;
+  color: rgba(237,239,243,.90);
+}
+.rendiSummaryNote{
+  margin-top:8px;
+  font-size:10.5px;
+  color: rgba(237,239,243,.55);
+}
+
+/* Cursor (subtle “filmpje” feel) */
+.rendiCursor{
+  position:absolute;
+  width:14px;
+  height:14px;
+  border-radius:999px;
+  border:1px solid rgba(237,239,243,.65);
+  background: rgba(255,255,255,.06);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.45),
+    0 0 0 8px rgba(220,121,92,.12);
+  left: 30%;
+  top: 55%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: .85;
+  transition: left .7s ease, top .7s ease, transform .18s ease, opacity .25s ease;
+  pointer-events:none;
+}
+.rendiCursor.is-click{
+  transform: translate(-50%, -50%) scale(.85);
+}
+
+/* Screen glass (iMac) */
+.rendiGlass{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(120deg, rgba(255,255,255,.10), transparent 35%),
+    radial-gradient(600px 300px at 25% 15%, rgba(255,255,255,.08), transparent 60%);
+  mix-blend-mode: screen;
+  opacity:.35;
+}
+
+/* Small screens inside iMac: keep it readable */
+@media (max-width: 520px){
+  .rendiGrid2{ grid-template-columns: 1fr; }
+  .rendiSummary{ display:none; }
+}
