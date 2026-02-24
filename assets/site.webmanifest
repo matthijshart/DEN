@@ -1,0 +1,21 @@
+{
+  "name": "Rendi",
+  "short_name": "Rendi",
+  "description": "Box 3. 2028. Zonder gedoe. Een slimme tool voor de opgave werkelijk rendement.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
+  "icons": [
+    {
+      "src": "img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
