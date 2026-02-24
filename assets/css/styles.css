@@ -296,6 +296,7 @@ button{ font: inherit; }
 
 .imacFrame{
   width: 100%;
+  aspect-ratio: 16 / 10;
   border-radius: 28px;
   background: #11100f;
   box-shadow: 0 30px 90px rgba(20,17,15,.26);
@@ -379,6 +380,11 @@ button{ font: inherit; }
    =========================== */
 
 .imacScreen { position: relative; }
+.imacScreen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
 .imacScreen .rendiFilm{
   position:absolute;
   inset:0;
